@@ -7,7 +7,8 @@ COPY package*.json ./
 
 RUN apk update && \
   apk add sqlite  && \
-  npm install -g npm@latest
+  npm install -g npm@latest && \
+  npm i sqlite3
 
 
 COPY . .
@@ -40,7 +41,6 @@ ENV DATABASE_URL= \
 # ENV FIREBASE_CLIENT_EMAIL=geolocation-console@appspot.gserviceaccount.com
 
 
-RUN npm i sqlite3
 
 RUN NODE_ENV=production ./node_modules/.bin/webpack && \
     NPM_CONFIG_PRODUCTION=true npm prune --production 
