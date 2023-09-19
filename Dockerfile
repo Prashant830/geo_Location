@@ -7,8 +7,7 @@ COPY package*.json ./
 
 RUN apk update && \
   apk add sqlite  && \
-  npm install -g npm@latest && \
-
+  npm i
 
 COPY . .
 
@@ -39,11 +38,5 @@ ENV DATABASE_URL= \
 # ENV FIREBASE_PROJECT_ID=geolocation-console
 # ENV FIREBASE_CLIENT_EMAIL=geolocation-console@appspot.gserviceaccount.com
 
-
-
-
-
-ENV NPM_CONFIG_PRODUCTION=true \
-    NODE_ENV=production
 
 CMD ["node", "./bin/server.js"]
