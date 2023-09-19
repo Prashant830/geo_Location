@@ -6,13 +6,14 @@ import compress from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 import { extname, resolve } from 'path';
+import env from 'dotenv';
+
 
 import {
   dyno,
   firebaseURL,
   isProduction,
   parserLimit,
-  port,
 } from './config.js';
 import initializeDatabase from './database/initializeDatabase.js';
 import { AccessDeniedError } from './libs/utils.js';
@@ -22,6 +23,7 @@ import siteApi from './routes/site-api.js';
 import tests from './routes/tests.js';
 
 const app = express();
+const port = process.env.PORT || 3001;
 const staticContent = resolve('.', 'public');
 const parserLimits = { limit: parserLimit, extended: true };
 
@@ -83,9 +85,8 @@ app.use(bodyParser.raw(parserLimits));
   });
 
 
-  export const devPort = process.env.PORT || 3001;
 
-  app.listen(pevPort, () => {
+  app.listen(port, () => {
     console.log('╔═══════════════════════════════════════════════════════════'.green.bold);
     console.log('║ Background Geolocation Server | port: %s, dyno: %s'.green.bold, port, dyno);
     console.log('╚═══════════════════════════════════════════════════════════'.green.bold);
