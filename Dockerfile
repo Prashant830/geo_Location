@@ -7,7 +7,8 @@ COPY package*.json ./
 
 RUN apk update && \
   apk add sqlite  && \
-  npm i
+  npm install -g npm@latest
+
 
 COPY . .
 
@@ -42,7 +43,7 @@ RUN npm install -g npm@latest
 
 RUN NODE_ENV=production ./node_modules/.bin/webpack && \
     NPM_CONFIG_PRODUCTION=true npm prune --production && \
-    npm i sqlite3
+    npm i sqlite3 -g npm@latest
 
 ENV NPM_CONFIG_PRODUCTION=true \
     NODE_ENV=production
