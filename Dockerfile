@@ -39,7 +39,6 @@ ENV DATABASE_URL= \
 # ENV FIREBASE_PROJECT_ID=geolocation-console
 # ENV FIREBASE_CLIENT_EMAIL=geolocation-console@appspot.gserviceaccount.com
 
-RUN npm i
 
 RUN npm i sqlite3
 
