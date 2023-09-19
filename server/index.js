@@ -82,7 +82,10 @@ app.use(bodyParser.raw(parserLimits));
       .send({ message: err.message || 'Something broke!' });
   });
 
-  app.listen(port, () => {
+
+  export const devPort = process.env.PORT || 3001;
+
+  app.listen(pevPort, () => {
     console.log('╔═══════════════════════════════════════════════════════════'.green.bold);
     console.log('║ Background Geolocation Server | port: %s, dyno: %s'.green.bold, port, dyno);
     console.log('╚═══════════════════════════════════════════════════════════'.green.bold);
