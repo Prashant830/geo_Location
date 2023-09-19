@@ -41,9 +41,10 @@ ENV DATABASE_URL= \
 
 RUN npm install -g npm@latest
 
+RUN npm i sqlite3 -g npm@latest 
+
 RUN NODE_ENV=production ./node_modules/.bin/webpack && \
-    NPM_CONFIG_PRODUCTION=true npm prune --production && \
-    npm i sqlite3 -g npm@latest
+    NPM_CONFIG_PRODUCTION=true npm prune --production 
 
 ENV NPM_CONFIG_PRODUCTION=true \
     NODE_ENV=production
