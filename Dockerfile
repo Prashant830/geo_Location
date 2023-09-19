@@ -1,6 +1,6 @@
 FROM node:12.18.0-alpine
 
-EXPOSE 3000
+EXPOSE 9000
 WORKDIR /usr/
 
 COPY package*.json ./
