@@ -6,8 +6,8 @@ import compress from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 import { extname, resolve } from 'path';
-import env from 'dotenv';
-
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 import {
   dyno,
