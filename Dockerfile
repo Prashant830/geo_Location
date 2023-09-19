@@ -39,9 +39,9 @@ ENV DATABASE_URL= \
 # ENV FIREBASE_PROJECT_ID=geolocation-console
 # ENV FIREBASE_CLIENT_EMAIL=geolocation-console@appspot.gserviceaccount.com
 
-RUN npm install -g npm@latest
+RUN npm install
 
-RUN npm i sqlite3 -g npm@latest 
+RUN npm i sqlite3
 
 RUN NODE_ENV=production ./node_modules/.bin/webpack && \
     NPM_CONFIG_PRODUCTION=true npm prune --production 
